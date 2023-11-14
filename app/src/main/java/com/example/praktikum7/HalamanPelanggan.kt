@@ -35,8 +35,7 @@ fun CustomerDetailsScreen(
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 16.dp, vertical = 16.dp)
-    ) {}
-    OutlinedTextField(
+    ) {OutlinedTextField(
         value = namaPelanggan,
         onValueChange = { namaPelanggan = it },
         label = { Text(text = "Nama Pelanggan") },
@@ -44,43 +43,44 @@ fun CustomerDetailsScreen(
             .fillMaxWidth()
             .padding(bottom = 8.dp),
     )
-    OutlinedTextField(
-        value = nomorTelepon,
-        onValueChange = { nomorTelepon = it },
-        label = { Text(text = "Nomor Telepon") },
-        keyboardOptions = KeyboardOptions.Default.copy(
-            keyboardType = KeyboardType.Phone
-        ),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 8.dp),
-    )
-    OutlinedTextField(
-        value = alamat,
-        onValueChange = { alamat = it },
-        label = { Text(text = "Alamat") },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 16.dp),
-    )
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-        OutlinedButton(onClick = onCancelButtonClicked) {
-            Text(text = "Cancel")
-        }
-
-        Button(
-            onClick = {
-                if (namaPelanggan.isNotEmpty() && nomorTelepon.isNotEmpty() && alamat.isNotEmpty()) {
-                    onConfirmButtonClicked(namaPelanggan, nomorTelepon, alamat)
-                }
-            }
+        OutlinedTextField(
+            value = nomorTelepon,
+            onValueChange = { nomorTelepon = it },
+            label = { Text(text = "Nomor Telepon") },
+            keyboardOptions = KeyboardOptions.Default.copy(
+                keyboardType = KeyboardType.Phone
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp),
+        )
+        OutlinedTextField(
+            value = alamat,
+            onValueChange = { alamat = it },
+            label = { Text(text = "Alamat") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp),
+        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Text(text = "Next")
+            OutlinedButton(onClick = onCancelButtonClicked) {
+                Text(text = "Cancel")
+            }
+
+            Button(
+                onClick = {
+                    if (namaPelanggan.isNotEmpty() && nomorTelepon.isNotEmpty() && alamat.isNotEmpty()) {
+                        onConfirmButtonClicked(namaPelanggan, nomorTelepon, alamat)
+                    }
+                }
+            ) {
+                Text(text = "Next")
+            }
         }
     }
 }
